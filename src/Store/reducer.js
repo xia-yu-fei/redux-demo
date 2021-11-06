@@ -5,7 +5,7 @@ const defaultValue = {
   listData: ["早8点", "早9点", "早10点"],
 };
 
-export default (state = defaultValue, action) => {
+const reducer = (state = defaultValue, action) => {
   const { type, value } = action;
   const newState = JSON.parse(JSON.stringify(state));
   switch (type) {
@@ -23,3 +23,5 @@ export default (state = defaultValue, action) => {
       return state;
   }
 };
+
+export default reducer;
