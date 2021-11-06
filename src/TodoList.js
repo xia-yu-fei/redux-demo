@@ -5,7 +5,7 @@ import {
   DispatchOnChangeInput,
   DispatchOnClickButton,
   DispatchOnClickItems,
-  getListAction,
+  getList,
 } from "./Store/actionCreator";
 
 class TodoList extends Component {
@@ -31,11 +31,8 @@ class TodoList extends Component {
     );
   }
   componentDidMount() {
-    setTimeout(() => {
-      const data = ["早8点", "早9点", "早10点"];
-      const action = getListAction(data);
-      Store.dispatch(action);
-    }, 500);
+    const actionCallback = getList();
+    Store.dispatch(actionCallback);
   }
 
   onChangeInput(e) {

@@ -32,3 +32,13 @@ export function getListAction(data) {
     data,
   };
 }
+
+export function getList() {
+  return (dispatch) => {
+    setTimeout(() => {
+      const data = ["早8点", "早9点", "早10点"];
+      const action = getListAction(data);
+      dispatch(action);
+    }, 500);
+  };
+}
