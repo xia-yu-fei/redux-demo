@@ -32,7 +32,7 @@ class TodoList extends Component {
   }
   componentDidMount() {
     const actionCallback = getList();
-    Store.dispatch(actionCallback);
+    // Store.dispatch(actionCallback);
   }
 
   onChangeInput(e) {
