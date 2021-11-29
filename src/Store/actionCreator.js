@@ -5,18 +5,20 @@ import {
   GET_LIST,
 } from "./actionType";
 
-export function DispatchOnChangeInput(value) {
+export function DispatchOnChangeInput(e) {
   return {
     type: ON_CHANGE,
-    value,
+    value: e.target.value,
   };
 }
 
 export function DispatchOnClickButton(value) {
-  return {
-    type: ON_CLICK_BUTTON,
-    value,
-  };
+  if (value && value.replaceAll(" ", "")) {
+    return {
+      type: ON_CLICK_BUTTON,
+      value,
+    };
+  }
 }
 
 export function DispatchOnClickItems(index) {
