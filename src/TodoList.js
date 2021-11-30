@@ -19,10 +19,10 @@ class TodoList extends Component {
     Store.subscribe(this.stateChange);
   }
   render() {
-    const { imputValue, listData } = this.state;
+    const { inputValue, listData } = this.state;
     return (
       <TodoListUI
-        imputValue={imputValue}
+        inputValue={inputValue}
         listData={listData}
         onChangeInput={this.onChangeInput}
         onClickButton={this.onClickButton}
@@ -40,9 +40,9 @@ class TodoList extends Component {
     Store.dispatch(action);
   }
   onClickButton() {
-    const { imputValue } = this.state;
-    if (imputValue && imputValue.replaceAll(" ", "")) {
-      const action = DispatchOnClickButton(imputValue);
+    const { inputValue } = this.state;
+    if (inputValue && inputValue.replaceAll(" ", "")) {
+      const action = DispatchOnClickButton(inputValue);
       Store.dispatch(action);
     }
   }

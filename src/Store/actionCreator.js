@@ -13,12 +13,10 @@ export function DispatchOnChangeInput(e) {
 }
 
 export function DispatchOnClickButton(value) {
-  if (value && value.replaceAll(" ", "")) {
-    return {
-      type: ON_CLICK_BUTTON,
-      value,
-    };
-  }
+  return {
+    type: ON_CLICK_BUTTON,
+    value,
+  };
 }
 
 export function DispatchOnClickItems(index) {

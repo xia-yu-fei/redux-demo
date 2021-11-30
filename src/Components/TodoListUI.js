@@ -3,16 +3,16 @@ import "antd/dist/antd.css";
 import { Input, Button, List } from "antd";
 
 const TodoListUI = (props) => {
-  const { imputValue, listData, onChangeInput, onClickButton, onClickItems } =
+  const { inputValue, listData, onChangeInput, onClickButton, onClickItems } =
     props;
   return (
     <>
       <Input
-        placeholder={imputValue}
-        value={imputValue}
+        placeholder={inputValue}
+        value={inputValue}
         onChange={onChangeInput}
       />
-      <Button type="primary" onClick={() => onClickButton(imputValue)}>
+      <Button type="primary" onClick={() => onClickButton(inputValue)}>
         增加
       </Button>
       <List
