@@ -7,7 +7,7 @@ import {
   DispatchOnClickButton,
   DispatchOnClickItems,
   getList,
-} from "../Store/actionCreator";
+} from "../Store/actions/TodoList";
 
 const TodoListUI = (props) => {
   const {

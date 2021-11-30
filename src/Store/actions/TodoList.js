@@ -1,9 +1,7 @@
-import {
-  ON_CHANGE,
-  ON_CLICK_BUTTON,
-  DELETE_CUR_ITEM,
-  GET_LIST,
-} from "./actionType";
+export const ON_CHANGE = "onChange";
+export const ON_CLICK_BUTTON = "onClickButton";
+export const DELETE_CUR_ITEM = "deleteCurItem";
+export const GET_LIST = "getList";
 
 export function DispatchOnChangeInput(e) {
   return {

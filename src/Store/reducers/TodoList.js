@@ -3,7 +3,7 @@ import {
   ON_CLICK_BUTTON,
   DELETE_CUR_ITEM,
   GET_LIST,
-} from "./actionType";
+} from "../actions/TodoList";
 
 const defaultValue = {
   inputValue: "",

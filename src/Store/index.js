@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import reducer from "./reducer";
+import reducer from "./reducers/TodoList";
 
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPONSE__
 //   ? window.__REDUX_DEVTOOLS_EXTENSION_COMPONSE__({})
