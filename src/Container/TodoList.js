@@ -17,6 +17,7 @@ const TodoListUI = (props) => {
     onClickButton,
     onClickItems,
     getList,
+    num,
   } = props;
   useEffect(() => {
     getList();
@@ -44,13 +45,22 @@ const TodoListUI = (props) => {
           </List.Item>
         )}
       />
+      <div>下方縂人數：{num} </div>
     </>
   );
 };
 
-export default connect((state) => state, {
-  onChangeInput: DispatchOnChangeInput,
-  onClickButton: DispatchOnClickButton,
-  onClickItems: DispatchOnClickItems,
-  getList,
-})(TodoListUI);
+export default connect(
+  (state) => {
+    return {
+      ...state.todo,
+      num: state.person.num,
+    };
+  },
+  {
+    onChangeInput: DispatchOnChangeInput,
+    onClickButton: DispatchOnClickButton,
+    onClickItems: DispatchOnClickItems,
+    getList,
+  }
+)(TodoListUI);
