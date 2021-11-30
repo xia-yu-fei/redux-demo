@@ -7,12 +7,11 @@ import {
 
 const defaultValue = {
   inputValue: "",
-  listData: ["早8点", "早9点", "早10点"],
+  listData: [],
 };
 
 const reducer = (state = defaultValue, action) => {
-  const { type, value, data } = action
-  console.log('action',action);
+  const { type, value, data } = action;
   const newState = JSON.parse(JSON.stringify(state));
   switch (type) {
     case ON_CHANGE:
