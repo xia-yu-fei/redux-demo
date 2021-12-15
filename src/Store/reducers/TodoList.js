@@ -1,3 +1,4 @@
+import produce from "immer";
 import {
   ON_CHANGE,
   ON_CLICK_BUTTON,
@@ -12,21 +13,27 @@ const defaultValue = {
 
 const reducer = (state = defaultValue, action) => {
   const { type, value, data } = action;
-  const newState = JSON.parse(JSON.stringify(state));
+  function UseImmer(updateState) {
+    return produce(state, updateState);
+  }
   switch (type) {
     case ON_CHANGE:
-      newState.inputValue = value;
-      return newState;
+      return UseImmer((draft) => {
+        draft.inputValue = value;
+      });
     case ON_CLICK_BUTTON:
-      newState.listData.push(value);
-      newState.inputValue = "";
-      return newState;
+      return UseImmer((draft) => {
+        draft.listData.push(value);
+        draft.inputValue = "";
+      });
     case DELETE_CUR_ITEM:
-      newState.listData.splice(value, 1);
-      return newState;
+      return UseImmer((draft) => {
+        draft.listData.splice(value, 1);
+      });
     case GET_LIST:
-      newState.listData = data;
-      return newState;
+      return UseImmer((draft) => {
+        draft.listData = data;
+      });
     default:
       return state;
   }

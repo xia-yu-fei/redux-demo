@@ -1,19 +1,21 @@
 import { ADD_PERSON, DELE_PERSON } from "../actions/Person";
+import produce from "immer";
 
 const defaultValue = {
   num: 0,
 };
 
-export default function (state = defaultValue, action) {
+export default function Person(state = defaultValue, action) {
   const { type } = action;
-  const newState = JSON.parse(JSON.stringify(state));
   switch (type) {
     case ADD_PERSON:
-      newState.num++;
-      return newState;
+      return produce(state, (draft) => {
+        draft.num++;
+      });
     case DELE_PERSON:
-      newState.num--;
-      return newState;
+      return produce(state, (draft) => {
+        draft.num--;
+      });
     default:
       return state;
   }
