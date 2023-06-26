@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Input, Button, List } from "antd";
+import { createSelector } from "reselect";
 import "antd/dist/antd.css";
 import {
   DispatchOnChangeInput,
@@ -18,10 +19,12 @@ const TodoListUI = (props) => {
     onClickItems,
     getList,
     num,
+    nums,
+    reSelectNums,
   } = props;
   useEffect(() => {
     getList();
-  }, []);
+  }, [getList]);
   return (
     <>
       <Input
@@ -46,15 +49,32 @@ const TodoListUI = (props) => {
         )}
       />
       <div>下方縂人數：{num} </div>
+      <div>下方縂人數 * 100：{nums} </div>
+      <div>下方縂人數 * 100：{reSelectNums} </div>
     </>
   );
 };
+
+function getNums(num) {
+  console.log("getNums是否执行 xyf", 1);
+  return num * 100;
+}
+
+const reGetNums = createSelector(
+  (state) => state.person.num,
+  (num) => {
+    console.log("reGetNums是否执行 xyf", 1);
+    return num * 100;
+  }
+);
 
 export default connect(
   (state) => {
     return {
       ...state.todo,
       num: state.person.num,
+      nums: getNums(state.person.num),
+      reSelectNums: reGetNums(state),
     };
   },
   {
